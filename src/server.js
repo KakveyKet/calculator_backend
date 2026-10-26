@@ -10,6 +10,8 @@ import numberCalRoutes from "./routes/numberCalRoutes.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import subCategoryRoutes from "./routes/subCategoryRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import batchInvoiceRoutes from "./routes/batchInvoiceRoutes.js";
+
 import { configureSocket } from "./socket/index.js";
 
 const app = express();
@@ -39,6 +41,7 @@ app.use("/api/number-cal", numberCalRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/sub-categories", subCategoryRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/batch-invoices", batchInvoiceRoutes);
 app.use((err, _req, res, _next) => {
   console.error(err);
   res.status(500).json({ message: "Internal server error." });
